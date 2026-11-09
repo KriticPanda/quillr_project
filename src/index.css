@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Rocker&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -116,6 +121,7 @@ code {
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  padding: 1%;
 }
 
 .Nav img {
@@ -131,15 +137,15 @@ code {
 .SideBar {
   position: sticky;
   top: 0;
-  width: 50%;
+  width: 80%;
   height: 100vh;
   background-color: #29005c;
 }
 
 .Footer {
   width: 100%;
-  height: 60px;
-  background-color: #29005c;
+  height: 80px;
+  background-color: white;
 }
 
 .MainContent {
@@ -149,4 +155,69 @@ code {
 
 .MainContent p {
   margin: 5%;
+}
+
+.comment-item img {
+  width: 5%;
+  height: 5%;
+}
+.UserPlate {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 30px;
+  color: #08060d;
+  margin-left: 5%;
+}
+
+.Nav a {
+  display: inline-block;
+  width: 10%;
+  vertical-align: middle;
+}
+
+.Nav a img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.StoriesCard {
+  background-color: white;
+  margin-top: 3%;
+}
+
+.StoriesCard p {
+  color: black;
+}
+
+.StoriesCard h2 {
+  color: black;
+}
+
+.StoriesCard h3 {
+  color: black;
+}
+
+.StoriesCard h4 {
+  color: black;
+}
+
+.StoriesCard h5 {
+  font-size: 1rem;
+  color: black;
+}
+
+.UserPlate img {
+  color: #29005c;
+}
+
+.StoriesCard > hr {
+  border: none;
+  height: 2px;
+  background-color: #29005c; /* Um azul moderno */
+  width: 80%; /* Ocupa apenas uma fração do ecrã */
+  margin: 30px auto; /* O 'auto' nas laterais centra a linha automaticamente */
+  border-radius: 1px; /* Arredonda as pontas da linha */
 }
