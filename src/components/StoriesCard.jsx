@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import UserLogo from "../assets/UserLogo.png";
+import { useState } from "react";
 
 // Adicionado o 'id' (ou '_id' se o teu json-server usar ids com underscore)
-function StoriesCard({ id, title, author, genre, content, commentsList }) {
+function StoriesCard({ id, title, author, genre, content, commentsList,likes }) {
+    const [likeCount, setLikeCount] = useState(likes ?? 0);
+    const [commentsVisible, setCommentsVisible] = useState(true);
+
     return (
         <div className="StoriesCard">
             
             <h2>
-                {/* O link clica no título e vai exatamente para a rota configurada no teu App.jsx */}
+                
                 <Link to={`/stories/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     {title}
                 </Link>
@@ -15,10 +19,21 @@ function StoriesCard({ id, title, author, genre, content, commentsList }) {
             <h3>{author}</h3>
             <h4>{genre}</h4>
             <p>{content}</p>
+            <div className="LikesBox">
+            <button type="button" onClick={() => setLikeCount((currentLikes) => currentLikes + 1)}>Like</button>
+            <p>{likeCount}</p>
+            <button
+                type="button"
+                onClick={() => setCommentsVisible((visible) => !visible)}
+                aria-expanded={commentsVisible}
+            >
+                {commentsVisible ? "Comments" : "Comments"}
+            </button>
+            </div>
 
             <hr className="AboveHr"/>
             
-            <aside>
+            {commentsVisible && <aside>
                 <h5>Comments</h5>
                 {commentsList && commentsList.length > 0 ? (
                     commentsList.map((comment) => (
@@ -33,14 +48,16 @@ function StoriesCard({ id, title, author, genre, content, commentsList }) {
                             </div>
                             <div>
                                 <p>{comment.text}</p>
+                                
                             </div>
+                            
                             <hr />
                         </div>
                     ))
                 ) : (
                     <p>No comments yet.</p>
                 )}
-            </aside>
+            </aside>}
         </div>
     );
 }

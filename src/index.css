@@ -227,3 +227,10 @@ code {
   width: 70vw;
   margin-left: 10%;
 }
+
+.LikesBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

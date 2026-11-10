@@ -16,7 +16,7 @@ export default function NavBar() {
         placeholder="Search" 
         
       />
-      <img src={SearchLogo}/>
+      <button>Search</button>
         </div>
 <Link to="/stories/create">
         <button>+ New Story</button>
