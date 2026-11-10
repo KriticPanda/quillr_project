@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import StoryDetails from './pages/StoryDetails';
 import CreateStory from './pages/CreateStory';
+import EditStory from './pages/EditStory';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
           
           
           <Route path="/stories/:storyId" element={<StoryDetails />} />
+          <Route path="/stories/edit/:storyId" element={<EditStory/>} />
         </Routes>
         </div>
       </div>

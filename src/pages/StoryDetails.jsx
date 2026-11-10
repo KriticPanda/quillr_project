@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom"; // CORREÇÃO: Importado o Link e o useNavigate
 import axios from "axios"; // used for calling the API
 import StoriesCard from "../components/StoriesCard";
 
@@ -51,6 +51,14 @@ export default function StoryDetails() {
                 {...story} 
                 commentsList={storyComments} 
             />
+
+             <Link to="/">
+        <button>Back to projects</button>
+      </Link>
+
+        <Link to={`/stories/edit/${story.id}`}>
+        <button>Edit Project</button>
+      </Link>
         </div>
     );
 }
