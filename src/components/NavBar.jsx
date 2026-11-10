@@ -18,8 +18,9 @@ export default function NavBar() {
       />
       <img src={SearchLogo}/>
         </div>
-
+<Link to="/stories/create">
         <button>+ New Story</button>
+        </Link>
       
     </div>
   )
