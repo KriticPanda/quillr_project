@@ -137,7 +137,7 @@ code {
 .SideBar {
   position: sticky;
   top: 0;
-  width: 80%;
+  width: 10vw;
   height: 100vh;
   background-color: #29005c;
 }
@@ -216,4 +216,14 @@ code {
   width: 80%; /* Ocupa apenas uma fração do ecrã */
   margin: 30px auto; /* O 'auto' nas laterais centra a linha automaticamente */
   border-radius: 1px; /* Arredonda as pontas da linha */
+}
+
+.CreateStory form {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewPort {
+  width: 70vw;
+  margin-left: 10%;
 }

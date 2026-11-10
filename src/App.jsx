@@ -17,6 +17,8 @@ function App() {
       <NavBar />
       <div className='MainContent'>
         <Sidebar/>
+
+        <div className='viewPort'>
         <Routes>
           
           <Route path="/" element={<HomePage />} />
@@ -27,6 +29,7 @@ function App() {
           
           <Route path="/stories/:storyId" element={<StoryDetails />} />
         </Routes>
+        </div>
       </div>
       <Footer/>
     </div>
