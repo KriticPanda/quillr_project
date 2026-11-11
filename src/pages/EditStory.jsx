@@ -2,17 +2,23 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"; // used for calling the API
 
+// Page for loading an existing story, editing its fields, or deleting it.
 export default function EditStory() {
+  // Navigate after a successful update or deletion.
   const navigate = useNavigate();
+  // Read the story ID from the current URL, such as /stories/edit/123.
   const { storyId } = useParams();
 
+  // These state values hold the editable story fields shown in the form.
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("");
   const [content, setContent] = useState("");
 
+  // Keep the form hidden until the existing story has been fetched.
   const [isLoading, setIsLoading] = useState(true);
 
+  // Fetch the selected story when the page loads or the URL's story ID changes.
   useEffect(() => {
     const getData = async () => {
       // Impede o pedido se o storyId ainda não estiver disponível
@@ -30,11 +36,14 @@ export default function EditStory() {
         setIsLoading(false);
       }
     };
+    // Start the asynchronous fetch defined above.
     getData();
   }, [storyId]); // CORREÇÃO: Adicionado o storyId como dependência para disparar assim que ele existir
 
+  // Save the edited fields when the form is submitted.
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    // Build the replacement story data using the API's expected field names.
     const body = {
       title: title,
       author: author,
@@ -45,13 +54,16 @@ export default function EditStory() {
       commentIds: [],
     };
     try {
+      // PUT replaces the story at this ID with the edited data.
       await axios.put(`https://module-2-json-server.onrender.com/stories/${storyId}`, body);
+      // Return to the updated story's detail page.
       navigate(`/stories/${storyId}`);
     } catch (error) {
       console.log("Erro ao atualizar:", error);
     }
   };
 
+  // Delete this story and return to the home page.
   const deleteStory = async () => {
     try {
       await axios.delete(`https://module-2-json-server.onrender.com/stories/${storyId}`);
@@ -62,12 +74,15 @@ export default function EditStory() {
     }
   };
 
+  // Show a loading message instead of an empty form while the API request is pending.
   if (isLoading) return <h3>Loading...</h3>;
 
+  // Display the fetched values in controlled inputs so each edit updates React state.
   return (
     <div className="EditStoryPage">
       <h3>Edit Story</h3>
 
+      {/* Submitting this form saves the edited story. */}
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>
         <input
@@ -104,6 +119,7 @@ export default function EditStory() {
       </form>
 
       {/* Botão de remoção fora do formulário */}
+      {/* This button is outside the form, so clicking it calls the delete handler directly. */}
       <button onClick={deleteStory} className="delete-btn">Delete Story</button> 
     </div>
   );

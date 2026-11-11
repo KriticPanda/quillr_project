@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// Page for creating and saving a new story.
 export default function CreateStory() {
+  // Provides programmatic navigation after the story has been saved.
   const navigate = useNavigate();
+  // Each state value holds the current text for one controlled form field.
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("");
   const [content, setContent] = useState(""); // Mapeado para 'content' para o teu JSON
 
+  // Prevent a page reload, create the story object, and send it to the API.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,15 +37,19 @@ export default function CreateStory() {
       // Volta para a página inicial da tua app
       navigate("/");
     } catch (error) {
+      // Log the request error so a failed save can be diagnosed.
       console.log("Erro ao submeter os dados:", error);
     }
   };
 
+  // The inputs are controlled: their values come from state and onChange updates it.
   return (
     <div className="CreateStory">
       <h3>New Story</h3>
+      {/* Submitting this form calls handleSubmit above. */}
       <form onSubmit={handleSubmit}>
         <label>Title:</label>
+        {/* Save each edit to the matching state variable. */}
         <input
           type="text"
           name="title"
