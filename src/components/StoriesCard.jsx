@@ -73,10 +73,12 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
             <p>{content}</p>
             <div className="LikesBox">
             {/* Update this card's like count in React state when clicked. */}
-            <button type="button" onClick={() => setLikeCount((currentLikes) => currentLikes + 1)}>Like</button>
+           <div className="like-buttons">
+            <button id="like-button" type="button" onClick={() => setLikeCount((currentLikes) => currentLikes + 1)}>Like</button>
             <p>{likeCount}</p>
+            </div>
             {/* Toggle the comments panel; aria-expanded communicates its state to assistive technology. */}
-            <button
+            <button id="comment-button"
                 type="button"
                 onClick={() => setCommentsVisible((visible) => !visible)}
                 aria-expanded={commentsVisible}
@@ -84,11 +86,13 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
                 {commentsVisible ? "Comments" : "Comments"}
             </button>
             </div>
+            <hr/>
 
-            <hr className="AboveHr"/>
+           
             
             {/* Render the comments area only while it is expanded. */}
             {commentsVisible && <aside>
+                
                 <h5>Comments</h5>
 
                 {/* Controlled form: React state tracks the text and the handler submits it. */}
@@ -103,7 +107,7 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
                         required
                     />
                     {/* Disable empty or duplicate submissions and show progress during the request. */}
-                    <button type="submit" disabled={isSubmittingComment || !newComment.trim()}>
+                    <button  type="submit" disabled={isSubmittingComment || !newComment.trim()}>
                         {isSubmittingComment ? "Submitting..." : "Submit"}
                     </button>
                 </form>
@@ -126,7 +130,7 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
                                 
                             </div>
                             
-                            <hr />
+                            
                         </div>
                     ))
                 ) : (

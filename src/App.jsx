@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import StoryDetails from './pages/StoryDetails';
 import CreateStory from './pages/CreateStory';
 import EditStory from './pages/EditStory';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           
         
           <Route path="/stories/create" element={<CreateStory/>}/>

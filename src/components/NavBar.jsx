@@ -50,7 +50,7 @@ export default function NavBar() {
         </form>
         {/* Navigate to the page for creating a new story. */}
         <Link to="/stories/create">
-        <button type="button">+ New Story</button>
+        <button id="story-button" type="button">+ New Story</button>
         </Link>
     </div>
   )

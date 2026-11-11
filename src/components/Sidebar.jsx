@@ -1,11 +1,14 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 // A placeholder component for the app's sidebar area.
 export default function Sidebar() {
-  return (
-    <div className='SideBar'>
+  const navigate = useNavigate();
 
-      {/* Sidebar content can be added here; the wrapper is currently styled by CSS. */}
-    </div>
-  )
+  return (
+    <aside className="SideBar">
+      <button type="button" onClick={() => navigate("/about")}>
+        About
+      </button>
+    </aside>
+  );
 }

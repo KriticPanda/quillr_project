@@ -2,6 +2,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 :root {
   --text: #6b6375;
@@ -53,10 +54,6 @@ body {
   #social .button-icon {
     filter: invert(1) brightness(2);
   }
-}
-
-body {
-  margin: 0;
 }
 
 #root {
@@ -157,11 +154,11 @@ code {
 }
 
 .SearchBar button {
-  padding: 8px 14px;
+  padding: 2.5% 5%;
   border: 0;
   border-radius: 6px;
   color: white;
-  background-color: #29005c;
+  background-color: #81b29a;
   cursor: pointer;
 }
 
@@ -170,7 +167,31 @@ code {
   top: 0;
   width: 10vw;
   height: 100vh;
-  background-color: #29005c;
+  flex-shrink: 0;
+  padding: 16px 8px;
+  box-sizing: border-box;
+  background-color: #81b29a;
+}
+
+.SideBar button {
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid white;
+  border-radius: 6px;
+  color: #81b29a;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.AboutPage {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.AboutPage p {
+  margin: 0 0 16px;
 }
 
 .Footer {
@@ -216,7 +237,9 @@ code {
 
 .StoriesCard {
   background-color: white;
-  margin-top: 3%;
+  padding: 2%;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 .StoriesCard p {
@@ -243,7 +266,7 @@ code {
 .StoriesCard > hr {
   border: none;
   height: 2px;
-  background-color: #29005c; /* Um azul moderno */
+  background-color: #81b29a; /* Um azul moderno */
   width: 80%; /* Ocupa apenas uma fração do ecrã */
   margin: 30px auto; /* O 'auto' nas laterais centra a linha automaticamente */
   border-radius: 1px; /* Arredonda as pontas da linha */
@@ -262,6 +285,55 @@ code {
 .LikesBox {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 2%;
+}
+
+#story-button {
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  color: white;
+  background: #81b29a;
+  font: inherit;
+  cursor: pointer;
+}
+
+#comment-button {
+  width: 120px;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  color: white;
+  background: #81b29a;
+  font: inherit;
+  cursor: pointer;
+}
+
+#like-button {
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  color: white;
+  background: #81b29a;
+  font: inherit;
+  cursor: pointer;
+}
+
+.like-buttons {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.hr {
+  color: #81b29a;
+}
+
+.comment-item {
+  padding-bottom: 2%;
 }
