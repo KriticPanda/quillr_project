@@ -134,6 +134,37 @@ code {
   height: 5%;
 }
 
+.SearchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(45%, 560px);
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--bg);
+}
+
+.SearchBar input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border: 0;
+  outline: none;
+  color: var(--text-h);
+  background: transparent;
+  font: inherit;
+}
+
+.SearchBar button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  color: white;
+  background-color: #29005c;
+  cursor: pointer;
+}
+
 .SideBar {
   position: sticky;
   top: 0;

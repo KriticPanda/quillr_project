@@ -5,7 +5,7 @@ import { useState } from "react";
 // Adicionado o 'id' (ou '_id' se o teu json-server usar ids com underscore)
 function StoriesCard({ id, title, author, genre, content, commentsList,likes }) {
     const [likeCount, setLikeCount] = useState(likes ?? 0);
-    const [commentsVisible, setCommentsVisible] = useState(true);
+    const [commentsVisible, setCommentsVisible] = useState(false);
 
     return (
         <div className="StoriesCard">

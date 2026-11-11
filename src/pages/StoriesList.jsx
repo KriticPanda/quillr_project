@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios"; 
 import StoriesCard from "../components/StoriesCard";
+import { useSearchParams } from "react-router-dom";
 
 function StoriesList() {
     const [allStories, setAllstories] = useState(null);
     const [allComments, setAllComments] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchParams] = useSearchParams();
+    const searchTerm = (searchParams.get("search") ?? "").trim().toLowerCase();
 
     useEffect(() => {
         getData(); 
@@ -31,9 +34,15 @@ function StoriesList() {
 
     if (isLoading) return <h3>Loading...</h3>;
 
+    const matchingStories = allStories?.filter((story) => {
+        const title = String(story.title ?? "").toLowerCase();
+        const genre = String(story.genre ?? "").toLowerCase();
+        return title.includes(searchTerm) || genre.includes(searchTerm);
+    }) ?? [];
+
     return (
         <div className="StoriesList">
-            {allStories && allStories.map((story) => {
+            {matchingStories.length > 0 ? matchingStories.map((story) => {
                 // Filtra os comentários cujo storyId seja igual ao id da história atual
                 const storyComments = allComments 
                     ? allComments.filter(comment => comment.storyId === story.id)
@@ -46,7 +55,7 @@ function StoriesList() {
                         commentsList={storyComments} 
                     />
                 );
-            })}
+            }) : <p>No stories found.</p>}
         </div>
     );
 }
