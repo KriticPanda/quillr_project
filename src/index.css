@@ -1,143 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=New+Rocker&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-}
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  font-family: "Roboto", system-ui, "Segoe UI", sans-serif;
+  color: #25232a;
+  background: #f7f8f7;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --text: #514e55;
+  --text-h: #25232a;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --accent: #81b29a;
+  --shadow: 0 8px 24px rgba(31, 45, 37, 0.08);
+
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-family: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(75, 135, 105, 0.45);
+  outline-offset: 2px;
 }
 
 #root {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
 h1,
 h2 {
-  font-weight: 500;
   color: var(--text-h);
+  font-weight: 600;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  margin: 24px 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  text-align: center;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.2;
 }
+
 p {
   margin: 0;
 }
 
-code,
-.counter {
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
-
 .Nav {
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  padding: 1%;
+  gap: 24px;
+  width: 100%;
+  padding: 14px clamp(16px, 4vw, 48px);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
-.Nav img {
-  width: 10%;
-  height: 10%;
+.Nav > a:first-child {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(100px, 13vw, 170px);
 }
 
-.SearchBar img {
-  width: 5%;
-  height: 5%;
+.Nav > a:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .SearchBar {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: min(45%, 560px);
+  width: min(100%, 560px);
+  min-width: 0;
   padding: 6px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background-color: var(--bg);
+  background: var(--bg);
 }
 
 .SearchBar input {
@@ -148,345 +128,388 @@ code {
   outline: none;
   color: var(--text-h);
   background: transparent;
-  font: inherit;
 }
 
-.SearchBar button {
-  padding: 2.5% 5%;
-  border: 0;
+.SearchBar input:focus-visible {
+  outline: none;
+}
+
+.SearchBar button,
+#story-button,
+#comment-button,
+#like-button,
+.comment-form button,
+.editButtons button,
+.EditStoryPage button,
+.CreateStory button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   color: white;
-  background-color: #81b29a;
-  cursor: pointer;
+  background: #58896f;
+  font-weight: 600;
+}
+
+.SearchBar button:hover,
+#story-button:hover,
+#comment-button:hover,
+#like-button:hover,
+.comment-form button:hover,
+.editButtons button:hover,
+.EditStoryPage button:hover,
+.CreateStory button:hover {
+  background: #47775e;
+}
+
+.Nav > a:last-child {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+#story-button {
+  width: auto;
+  white-space: nowrap;
+}
+
+.MainContent {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  min-width: 0;
+  width: 100%;
 }
 
 .SideBar {
   position: sticky;
   top: 0;
-  width: 10vw;
-  height: 100vh;
-  flex-shrink: 0;
-  padding: 16px 8px;
-  box-sizing: border-box;
-  background-color: #81b29a;
+  align-self: flex-start;
+  flex: 0 0 180px;
+  min-height: calc(100vh - 74px);
+  padding: 24px 16px;
+  background: #81b29a;
 }
 
 .SideBar button {
   width: 100%;
-  padding: 10px 8px;
+  min-height: 44px;
+  padding: 8px;
   border: 1px solid white;
   border-radius: 6px;
-  color: #81b29a;
+  color: #416d56;
   background: white;
-  font: inherit;
-  cursor: pointer;
-}
-
-.AboutPage {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 24px;
-}
-
-.AboutPage p {
-  margin: 0 0 16px;
-}
-
-.Footer {
-  width: 100%;
-  height: 80px;
-  background-color: white;
-}
-
-.MainContent {
-  display: flex;
-  flex-direction: row;
-}
-
-.MainContent p {
-  margin: 5%;
-}
-
-.comment-item img {
-  width: 5%;
-  height: 5%;
-}
-.UserPlate {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 30px;
-  color: #08060d;
-  margin-left: 5%;
-}
-
-.Nav a {
-  display: inline-block;
-  width: 10%;
-  vertical-align: middle;
-}
-
-.Nav a img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.StoriesCard {
-  background-color: white;
-  padding: 2%;
-  margin-top: 2%;
-  margin-bottom: 4%;
-}
-
-.StoriesCard p {
-  color: black;
-}
-
-.StoriesCard h2 {
-  color: black;
-  font-size: 2em;
-}
-
-.StoriesCard h3 {
-  color: black;
-}
-
-.StoriesCard h4 {
-  color: black;
-}
-
-.StoriesCard h5 {
-  font-size: 1rem;
-  color: black;
-}
-
-.StoriesCard > hr {
-  border: none;
-  height: 2px;
-  background-color: #81b29a; /* Um azul moderno */
-  width: 80%; /* Ocupa apenas uma fração do ecrã */
-  margin: 30px auto; /* O 'auto' nas laterais centra a linha automaticamente */
-  border-radius: 1px; /* Arredonda as pontas da linha */
-}
-
-.CreateStory form {
-  display: flex;
-  flex-direction: column;
+  font-weight: 600;
 }
 
 .viewPort {
-  width: 70vw;
-  margin-left: 10%;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 48px) 48px;
+}
+
+.StoriesList {
+  width: 100%;
+}
+
+.StoriesCard {
+  min-width: 0;
+  margin: 0 0 24px;
+  padding: clamp(16px, 3vw, 32px);
+  overflow-wrap: anywhere;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.StoriesCard h2,
+.StoriesCard h3,
+.StoriesCard h4,
+.StoriesCard h5,
+.StoriesCard p {
+  color: var(--text-h);
+}
+
+.StoriesCard h2 {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.StoriesCard h3,
+.StoriesCard h4 {
+  margin: 8px 0;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.StoriesCard > p {
+  margin-top: 20px;
+  white-space: pre-wrap;
+}
+
+.StoriesCard > hr {
+  width: 100%;
+  height: 1px;
+  margin: 24px 0;
+  border: 0;
+  background: var(--border);
 }
 
 .LikesBox {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
-  padding-bottom: 2%;
-}
-
-#story-button {
-  width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
-}
-
-#comment-button {
-  width: 120px;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
-}
-
-#like-button {
-  width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .like-buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
+  gap: 12px;
 }
 
-.hr {
-  color: #81b29a;
-}
-
-.comment-item {
-  padding-bottom: 2%;
+#like-button,
+#comment-button {
+  width: auto;
+  min-width: 100px;
 }
 
 .comment-form form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  gap: 30px;
+  gap: 12px;
+  margin: 12px 0 20px;
 }
 
 .comment-form form input {
-  height: 10em;
-  background-color: rgb(248, 243, 243);
-  color: black;
-  border: 2px solid black;
-}
-.comment-form form button {
   width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
+  color: var(--text-h);
+  background: #fff;
+}
+
+.comment-form button {
+  align-self: flex-start;
+}
+
+.comment-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.UserPlate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--text-h);
+}
+
+.UserPlate img,
+.comment-item img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.AboutPage {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.AboutPage p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.CreateStory,
+.EditStoryPage {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.CreateStory h3,
+.EditStoryPage h3 {
+  color: var(--text-h);
+  font-size: 1.5rem;
+}
+
+.CreateStory form,
+.EditStoryPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.CreateStory label,
+.EditStoryPage label {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.CreateStory form input,
+.EditStoryPage form input,
+.CreateStory form textarea,
+.EditStoryPage form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  background: white;
+}
+
+.CreateStory form textarea,
+.EditStoryPage form textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+.CreateStory button,
+.EditStoryPage button {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.EditStoryPage .delete-btn {
+  margin-top: 14px;
+  background: #a34f4f;
 }
 
 .editButtons {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
-  gap: 30px;
-  margin-bottom: 4%;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
 }
+
+.editButtons a {
+  flex: 1;
+  max-width: 240px;
+}
+
 .editButtons button {
   width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
-}
-
-.EditStoryPage form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.EditStoryPage form textarea {
-  width: 100%;
-  height: 300px;
-  background-color: white;
-  color: black;
-  border-radius: 6px;
-}
-
-.EditStoryPage form input {
-  width: 50%;
-  background-color: white;
-  color: black;
-  height: 30px;
-  border-radius: 6px;
-}
-
-.EditStoryPage button {
-  width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
-}
-
-.delete-btn {
-  margin-top: 30px;
-}
-
-.update-btn {
-  margin-top: 30px;
-  width: 40%;
-}
-
-.EditStoryPage label {
-  color: white;
-}
-
-.EditStoryPage h3 {
-  color: white;
-}
-
-.CreateStory {
-  display: flex;
-  flex-direction: column;
-}
-
-.CreateStory form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.CreateStory form textarea {
-  width: 100%;
-  height: 300px;
-  background-color: white;
-  color: black;
-  border-radius: 6px;
-}
-
-.CreateStory button {
-  width: 100%;
-  padding: 10px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  color: white;
-  background: #81b29a;
-  font: inherit;
-  cursor: pointer;
-  margin-top: 30px;
-}
-
-.CreateStory form input {
-  width: 50%;
-  background-color: white;
-  color: black;
-  height: 30px;
-  border-radius: 6px;
-}
-
-.CreateStory label {
-  color: white;
-}
-
-.CreateStory h3 {
-  color: white;
 }
 
 .Footer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: black;
+  justify-content: center;
+  min-height: 72px;
+  padding: 16px;
+  color: var(--text);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
 }
 
-.AboutPage p {
-  color: white;
+@media (max-width: 760px) {
+  .Nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .Nav > a:first-child {
+    width: clamp(92px, 26vw, 140px);
+  }
+
+  .SearchBar {
+    order: 3;
+    flex: 1 0 100%;
+    width: 100%;
+  }
+
+  .Nav > a:last-child {
+    margin-left: auto;
+  }
+
+  .MainContent {
+    flex-direction: column;
+  }
+
+  .SideBar {
+    position: static;
+    display: flex;
+    justify-content: center;
+    order: 2;
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 10px 16px;
+    background: transparent;
+    border-top: 1px solid var(--border);
+  }
+
+  .SideBar button {
+    width: auto;
+    min-width: 120px;
+  }
+
+  .viewPort {
+    order: 1;
+    padding: 20px 16px 32px;
+  }
+
+  .AboutPage {
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .Nav {
+    gap: 10px;
+  }
+
+  #story-button {
+    min-height: 40px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .SearchBar button {
+    padding: 8px 12px;
+  }
+
+  .viewPort {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .StoriesCard {
+    padding: 16px;
+  }
+
+  .LikesBox {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  #like-button,
+  #comment-button {
+    min-width: 0;
+  }
+
+  .editButtons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .editButtons a {
+    max-width: none;
+  }
 }
