@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"; // used for calling the API
+import LoadingSkeleton from "../components/LoadingSkeleton";
 
 // Page for loading an existing story, editing its fields, or deleting it.
 export default function EditStory() {
@@ -72,7 +73,7 @@ export default function EditStory() {
   };
 
   // Show a loading message instead of an empty form while the API request is pending.
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) return <LoadingSkeleton variant="form" />;
 
   // Display the fetched values in controlled inputs so each edit updates React state.
   return (

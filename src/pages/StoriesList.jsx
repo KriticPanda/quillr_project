@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios"; 
 import StoriesCard from "../components/StoriesCard";
 import { useSearchParams } from "react-router-dom";
+import LoadingSkeleton from "../components/LoadingSkeleton";
 
 // Loads stories and comments, applies the URL search filter, and renders story cards.
 function StoriesList() {
@@ -41,7 +42,7 @@ function StoriesList() {
     };
 
     // Return early while the API requests are still pending.
-    if (isLoading) return <h3>Loading...</h3>;
+    if (isLoading) return <LoadingSkeleton />;
 
     // Keep stories whose title or genre contains the search text; an empty query matches all.
     const matchingStories = allStories?.filter((story) => {

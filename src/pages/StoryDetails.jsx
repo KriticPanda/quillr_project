@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"; // CORREÇÃO: Importado o Link e o useNavigate
 import axios from "axios"; // used for calling the API
 import StoriesCard from "../components/StoriesCard";
+import LoadingSkeleton from "../components/LoadingSkeleton";
 
 // Loads and displays one story together with its comments and navigation actions.
 export default function StoryDetails() {
@@ -47,7 +48,7 @@ export default function StoryDetails() {
     };
 
     // Render loading and missing-story states before trying to display story properties.
-    if (isLoading) return <h3>Loading...</h3>;
+    if (isLoading) return <LoadingSkeleton variant="story" />;
     if (!story) return <h3>Story not found.</h3>;
 
     // Reuse StoriesCard for the story and its comment interaction; provide detail-page actions too.
