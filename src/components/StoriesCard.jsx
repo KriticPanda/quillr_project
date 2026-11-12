@@ -64,7 +64,7 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
             <h2> 
                 
                 {/* Open this story's detail page when its title is clicked. */}
-                <Link to={`/stories/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={`/stories/${id}`} style={{ textDecoration: 'none', color: "#81b29a" }}>
                     {title}
                 </Link>
             </h2>
