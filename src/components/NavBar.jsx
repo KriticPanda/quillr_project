@@ -34,6 +34,10 @@ export default function NavBar() {
         <Link to="/">
         <img src={Logo} alt="Quillr home" />
         </Link>
+
+        <Link className="navbar-about" to="/about">
+          About
+        </Link>
         
         {/* A form gives the search button and Enter key the same submit behavior. */}
         <form className="SearchBar" role="search" onSubmit={handleSearch}>

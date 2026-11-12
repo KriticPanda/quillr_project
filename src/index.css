@@ -167,6 +167,10 @@ p {
   text-decoration: none;
 }
 
+.navbar-about {
+  display: none;
+}
+
 #story-button {
   width: auto;
   white-space: nowrap;
@@ -443,21 +447,22 @@ p {
     flex-direction: column;
   }
 
-  .SideBar {
-    position: static;
-    display: flex;
+  .navbar-about {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    order: 2;
-    flex: 0 0 auto;
-    min-height: 0;
-    padding: 10px 16px;
-    background: transparent;
-    border-top: 1px solid var(--border);
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: #416d56;
+    background: white;
+    font-weight: 600;
+    text-decoration: none;
   }
 
-  .SideBar button {
-    width: auto;
-    min-width: 120px;
+  .SideBar {
+    display: none;
   }
 
   .viewPort {

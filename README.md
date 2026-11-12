@@ -12,3 +12,5 @@ App Pathing
 | --     | --           |
 | post   | /stories     |
 | put    | /stories:id  |
+
+About the quillR App
