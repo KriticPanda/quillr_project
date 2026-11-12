@@ -22,7 +22,7 @@ export default function CreateStory() {
       author: author,
       genre: genre,
       content: content,
-      companyId: "1234", // O teu ID obrigatório
+       // O teu ID obrigatório
       likes: 0,
       commentIds: [],
     };

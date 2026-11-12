@@ -61,6 +61,7 @@ export default function StoryDetails() {
             />
 
              {/* Return to the home page and its complete story list. */}
+             <div className="editButtons">
              <Link to="/">
         <button>Back to projects</button>
       </Link>
@@ -69,6 +70,7 @@ export default function StoryDetails() {
         <Link to={`/stories/edit/${story.id}`}>
         <button>Edit Project</button>
       </Link>
+      </div>
         </div>
     );
 }

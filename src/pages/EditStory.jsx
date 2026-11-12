@@ -43,19 +43,16 @@ export default function EditStory() {
   // Save the edited fields when the form is submitted.
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Build the replacement story data using the API's expected field names.
+    // Send only editable fields so existing likes and other story data are preserved.
     const body = {
       title: title,
       author: author,
       genre: genre,
       content: content,
-      companyId: "1234", 
-      likes: 0,
-      commentIds: [],
     };
     try {
-      // PUT replaces the story at this ID with the edited data.
-      await axios.put(`https://module-2-json-server.onrender.com/stories/${storyId}`, body);
+      // PATCH updates editable fields without replacing the rest of the story.
+      await axios.patch(`https://module-2-json-server.onrender.com/stories/${storyId}`, body);
       // Return to the updated story's detail page.
       navigate(`/stories/${storyId}`);
     } catch (error) {
@@ -115,12 +112,12 @@ export default function EditStory() {
           onChange={(e) => setContent(e.target.value)}
           rows="5"
         />
-        <button type="submit">Update Story</button>
+        <button className="update-btn" type="submit">Update Story</button>
       </form>
 
       {/* Botão de remoção fora do formulário */}
       {/* This button is outside the form, so clicking it calls the delete handler directly. */}
-      <button onClick={deleteStory} className="delete-btn">Delete Story</button> 
+      <button  onClick={deleteStory} className="delete-btn">Delete Story</button> 
     </div>
   );
 }

@@ -61,13 +61,14 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
     return (
         <div className="StoriesCard">
             
-            <h2>
+            <h2> 
                 
                 {/* Open this story's detail page when its title is clicked. */}
                 <Link to={`/stories/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     {title}
                 </Link>
             </h2>
+            
             <h3>{author}</h3>
             <h4>{genre}</h4>
             <p>{content}</p>
@@ -96,7 +97,8 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
                 <h5>Comments</h5>
 
                 {/* Controlled form: React state tracks the text and the handler submits it. */}
-                <form onSubmit={handleCommentSubmit}>
+                <div className="comment-form">
+                <form  onSubmit={handleCommentSubmit}>
                     {/* Update the controlled input state as the user types. */}
                     <input
                         type="text"
@@ -111,6 +113,7 @@ function StoriesCard({ id, title, author, genre, content, commentsList,likes }) 
                         {isSubmittingComment ? "Submitting..." : "Submit"}
                     </button>
                 </form>
+                </div>
                 {/* role=alert announces the failure message to assistive technology. */}
                 {commentError && <p role="alert">{commentError}</p>}
                 {/* Show each comment, or a helpful empty state if there are none yet. */}

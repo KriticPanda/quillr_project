@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function HomePage() {
     return (
       <div>
-        <h1>Home Page</h1>
+        <h1>Latest Posts</h1>
 
         {/* StoriesList fetches and displays the stories, including any active search filter. */}
         <StoriesList/>
